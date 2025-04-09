@@ -36,22 +36,24 @@ function displayOutput(data) {
     const tableHTML = `
         <table class="w-full">
             <tbody>
-                ${Object.values(data).map(contact => `
-                    <tr 
-                        onclick="editContact(${contact.id})" 
-                        class="cursor-pointer hover:bg-gray-50 border-b"
-                    >
-                        <td class="p-3">
-                            <img 
-                                src="${CONFIG.rootPath}controller/uploads/${contact.avatar}" 
-                                alt="${contact.firstname}'s avatar"
-                                class="w-10 h-10 rounded-full object-cover"
-                            />
-                        </td>
-                        <td class="p-3 font-medium">${contact.firstname}</td>
-                        <td class="p-3 font-medium">${contact.lastname}</td>
-                    </tr>
-                `).join('')}
+                ${
+                    Object.values(data).map(contact => `
+                        <tr 
+                            onclick="editContact(${contact.id})" 
+                            class="cursor-pointer hover:bg-gray-50 border-b"
+                        >
+                            <td class="p-3">
+                                <img 
+                                    src="${CONFIG.rootPath}controller/uploads/${contact.avatar}" 
+                                    alt="${contact.firstname}'s avatar"
+                                    class="w-10 h-10 rounded-full object-cover"
+                                />
+                            </td>
+                            <td class="p-3 font-medium">${contact.firstname}</td>
+                            <td class="p-3 font-medium">${contact.lastname}</td>
+                        </tr>
+                    `).join('')
+                }
             </tbody>
         </table>
     `;
@@ -60,7 +62,7 @@ function displayOutput(data) {
 }
 
 function addContact() {
-    window.location.href = "/src/pages/add-contact.html";
+    window.location.href = "./src/pages/add-contact.html";
 }
 
 function editContact(id) {
