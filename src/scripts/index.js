@@ -28,43 +28,48 @@ async function fetchContacts() {
 }
 
 function displayOutput(data) {
+    const table = document.getElementById('table');
+
     if (!data || !Object.keys(data).length) {
-        document.getElementById('table').innerHTML = '<p class="text-gray-500">No contacts found</p>';
+        table.innerHTML = '<p class="text-gray-500">No contacts found</p>';
         return;
     }
 
-    const tableHTML = `
-        <table class="w-full">
-            <tbody>
-                ${
-                    Object.values(data).map(contact => `
-                        <tr 
-                            onclick="editContact(${contact.id})" 
-                            class="cursor-pointer hover:bg-gray-50 border-b"
-                        >
-                            <td class="p-3">
-                                <img 
-                                    src="${CONFIG.rootPath}controller/uploads/${contact.avatar}" 
-                                    alt="${contact.firstname}'s avatar"
-                                    class="w-10 h-10 rounded-full object-cover"
-                                />
-                            </td>
-                            <td class="p-3 font-medium">${contact.firstname}</td>
-                            <td class="p-3 font-medium">${contact.lastname}</td>
-                        </tr>
-                    `).join('')
-                }
-            </tbody>
-        </table>
-    `;
-    
-    document.getElementById('table').innerHTML = tableHTML;
+    const tbody = document.createElement('tbody');
+
+    Object.values(data).forEach(contact => {
+        const tr = document.createElement('tr');
+        tr.className = "cursor-pointer hover:bg-gray-50 border-b";
+
+        tr.innerHTML = `
+            <td class="p-3">
+                <img 
+                    src="${CONFIG.rootPath}controller/uploads/${contact.avatar}" 
+                    alt="${contact.firstname}'s avatar"
+                    class="w-10 h-10 rounded-full object-cover"
+                />
+            </td>
+            <td class="p-3 font-medium">${contact.firstname}</td>
+            <td class="p-3 font-medium">${contact.lastname}</td>
+        `;
+
+        tr.addEventListener('click', () => editContact(contact.id));
+        tbody.appendChild(tr);
+    });
+
+    const tableEl = document.createElement('table');
+    tableEl.className = "w-full";
+    tableEl.appendChild(tbody);
+
+    table.innerHTML = '';
+    table.appendChild(tableEl);
 }
+
 
 function addContact() {
     window.location.href = "./src/pages/add-contact.html";
 }
 
 function editContact(id) {
-    window.location.href = `./pages/edit-contact.html?id=${id}`;
+    window.location.href = `./src/pages/edit-contact.html?id=${id}`;
 }

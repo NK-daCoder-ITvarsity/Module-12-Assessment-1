@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (data === '1') {
                 alert('Contact added successfully');
-                window.location.href = 'index.html';
+                window.location.href = '/index.html';
             } else {
                 alert(data || 'Failed to add contact');
                 submitBtn.disabled = false;

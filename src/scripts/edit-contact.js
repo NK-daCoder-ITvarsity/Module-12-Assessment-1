@@ -1,5 +1,5 @@
 
-import CONFIG  from "./config.js"
+import CONFIG from "./config.js"
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (data === '1') {
                 alert('Contact deleted successfully');
-                window.location.href = 'index.html';
+                window.location.href = '/index.html';
             } else {
                 alert(data || 'Failed to delete contact');
             }
