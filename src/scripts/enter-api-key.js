@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('Network response was not ok');
             
             const data = await response.text();
+            console.log(data);
             
             if (data === "1") {
                 localStorage.setItem("apiKey", CONFIG.apiKey);
