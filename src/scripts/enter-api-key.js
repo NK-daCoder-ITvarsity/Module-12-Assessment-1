@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (data === "1") {
                 localStorage.setItem("apiKey", CONFIG.apiKey);
-                window.location.href = "/index.html";
+                window.location.href = "/Module-12-Assessment-1/index.html";
             } else {
                 showError(data || "Invalid API key entered");
             }

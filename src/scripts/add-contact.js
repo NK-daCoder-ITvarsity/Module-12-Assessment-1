@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Event Listeners
     form.addEventListener('submit', submitForm);
-    homeLink.addEventListener('click', () => window.location.href = '/index.html');
+    homeLink.addEventListener('click', () => window.location.href = '/Module-12-Assessment-1/index.html');
     
     // Functions
     async function submitForm(e) {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (data === '1') {
                 alert('Contact added successfully');
-                window.location.href = '/index.html';
+                window.location.href = '/Module-12-Assessment-1/index.html';
             } else {
                 alert(data || 'Failed to add contact');
                 submitBtn.disabled = false;

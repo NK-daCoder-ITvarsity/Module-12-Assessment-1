@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = new URLSearchParams(window.location.search).get('id');
     
     // Event Listeners
-    homeLink.addEventListener('click', () => window.location.href = '/index.html');
+    homeLink.addEventListener('click', () => window.location.href = '/Module-12-Assessment-1/index.html');
     editBtn.addEventListener('click', enableEditing);
     submitBtn.addEventListener('click', submitForm);
     deleteBtn.addEventListener('click', deleteContact);
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayOutput(data) {
         if (!data || !data.length) {
             alert('Contact not found');
-            window.location.href = 'index.html';
+            window.location.href = '/Module-12-Assessment-1/index.html';
             return;
         }
         
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.text();
             if (data === '1') {
                 alert('Contact updated successfully');
-                window.location.href = '/index.html';
+                window.location.href = '/Module-12-Assessment-1/index.html';
             } else {
                 alert(data || 'Failed to update contact');
             }
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (data === '1') {
                 alert('Contact deleted successfully');
-                window.location.href = '/index.html';
+                window.location.href = '/Module-12-Assessment-1/index.html';
             } else {
                 alert(data || 'Failed to delete contact');
             }
